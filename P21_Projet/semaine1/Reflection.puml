@@ -1,6 +1,6 @@
 @startuml
 'https://plantuml.com/class-diagram
-package java.lang.Object #DEFDF5{
+package java.lang.Object #DEFFF5{
     class Class{}
     package java.lang.reflect    #DDDFF0{
         class Constructor{
