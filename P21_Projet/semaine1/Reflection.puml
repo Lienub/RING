@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+namespace java.lang.Object #DEFDF5{
+    class Class{}
+    namespace java.lang.reflect #DDDDF0{
+        class Constructor{
+        }
+
+        class Parameter{
+        }
+
+        class Method{
+        }
+
+        class Executable{
+        }
+
+        class AccessibleObject{
+            }
+
+        AccessibleObject <|-- Executable
+        Executable <|-- Method
+        Executable <|-- Constructor
+    }
+}
+
+
+@enduml
