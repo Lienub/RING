@@ -2,7 +2,7 @@
 'https://plantuml.com/class-diagram
 namespace java.lang.Object #DEFDF5{
     class Class{}
-    namespace java.lang.reflect #DDDDF0{
+    namespace java.lang.reflect #DDDFF0{
         class Constructor{
         }
 
