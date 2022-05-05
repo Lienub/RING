@@ -2,7 +2,7 @@
 'https://plantuml.com/class-diagram
 !theme vibrant
 skinparam classBorderColor #4F4F4F
-skinparam classBackgroundColor #FFFFFF
+skinparam classBackgroundColor #FFFFFD
 package java.lang.Object #C283C5-4B4A6D{
     class Class{
         +getName() : String
