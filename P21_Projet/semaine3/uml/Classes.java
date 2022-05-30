@@ -1,8 +1,9 @@
-package P21_Projet.semaine2.uml;
+package P21_Projet.semaine3.uml;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 
 public class Classes {
@@ -33,8 +34,7 @@ public class Classes {
     }
 
     private void ajoutMethods(){
-        for (Method m:
-                c.getDeclaredMethods()) {
+        for (Method m: c.getDeclaredMethods()) {
             methods.add(m);
         }
     }
@@ -46,23 +46,22 @@ public class Classes {
         }
     }
 
-    private void ecritureFields(){
+    private void ecriture(){
         for (Field f: fields) {
-            code+=new Fields(f).toString();
+            code +=new Fields(f).toString();
         }
-    }
 
-    private void ecritureMethods(){
-        for (Method m: methods) {
-            code+=new Methods(m).toString();
-        }
-    }
-
-    private void ecritureConstructors(){
         for (Constructor cons: constructors) {
-            code+=new Constructors(cons).toString();
+            code += new Constructors(cons).toString();
         }
-    }
+
+        for (Method m: methods) {
+            code+= new Methods(m).toString() ;
+            }
+        }
+
+
+
 
     private void finClass(){
         this.code += "\n}";
@@ -78,9 +77,7 @@ public class Classes {
 
     @Override
     public String toString() {
-        ecritureFields();
-        ecritureConstructors();
-        ecritureMethods();
+        ecriture();
         finClass();
         return this.code;
     }

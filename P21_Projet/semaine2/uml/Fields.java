@@ -10,6 +10,9 @@ public class Fields {
         this.f = field;
     }
 
+    public Fields(Modifier modifier) {
+    }
+
     @Override
     public String toString() {
         return "\t"+" "+f.getName()+"\n";
