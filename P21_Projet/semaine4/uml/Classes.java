@@ -27,10 +27,9 @@ public class Classes {
     }
     private String toStringClasifiers(Class c){
         String classif = "";
-        classif+=modif.toStringClass(c);
         if (c.isInterface()) classif+= "interface ";
         else if (c.isEnum()) classif+= "enum ";
-        else classif+= "class ";
+        else {classif+=modif.toStringClass(c); classif+= "class ";}
 
         return classif;
     }
