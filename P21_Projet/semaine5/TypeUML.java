@@ -11,18 +11,18 @@ TypeUML {
     public String toStringParam(Parameter p){
         String type="";
         if (p.getType().getSimpleName() == "int"){
-            type+="Integer";
+            type+=" : Integer";
         }
         else if (p.getType().getSimpleName().contains("float") || p.getType().getSimpleName().contains("double")){
             type=" : Real";
         }
-        else if (p.getParameterizedType() instanceof ParameterizedType) {
-            ParameterizedType pt = (ParameterizedType) p.getParameterizedType();
-            int i = 0;
+        else if (t instanceof ParameterizedType) {
+            ParameterizedType pt = (ParameterizedType) t;
+            int i=0;
             for (Type t : pt.getActualTypeArguments()) {
-                if (i++ == pt.getActualTypeArguments().length - 1) {
+                if(i++==pt.getActualTypeArguments().length-1){
 
-                    type += ((Class) t).getSimpleName() + "[*]";
+                    type+=((Class)t).getSimpleName()+"[*]";
 
                 }
             }
@@ -30,7 +30,7 @@ TypeUML {
             {
                 type+=" {isOrdered}";
             }
-            else if(pt.getTypeName().contains("Set"))
+            else if(pt.getTypeName().contains("List"))
             {
                 type+=" {isUnique}";
             }
@@ -40,9 +40,9 @@ TypeUML {
             type+="";
         }
         else if (p.getType().getSimpleName().contains("boolean")){
-            type+="Boolean";
+            type+=" : Boolean";
         }
-        else{type+=p.getType().getSimpleName();}
+        else{type+=" : "+p.getType().getSimpleName();}
         return type;
     }
 
@@ -50,7 +50,7 @@ TypeUML {
 
         String type="";
         if (f.getType().getSimpleName() == "int"){
-            type="Integer";
+            type=" : Integer";
         }
         else if (f.getType().getSimpleName().contains("float") || f.getType().getSimpleName().contains("double")){
             type=" : Real";
@@ -70,7 +70,7 @@ TypeUML {
             {
                 type+=" {isOrdered}";
             }
-            else if(pt.getTypeName().contains("Set"))
+            else if(pt.getTypeName().contains("List"))
             {
                 type+=" {isUnique}";
             }
@@ -79,9 +79,9 @@ TypeUML {
             type="";
         }
         else if (f.getType().getSimpleName().contains("boolean")){
-            type="Boolean";
+            type=" : Boolean";
         }
-        else{type=f.getType().getSimpleName();}
+        else{type=" : "+f.getType().getSimpleName();}
         return type;
     }
 
@@ -94,13 +94,13 @@ TypeUML {
         else if (e.getReturnType().getSimpleName().contains("float") || e.getReturnType().getSimpleName().contains("double")){
             type=" : Real";
         }
-        else if (p.getAnnotatedReturnType() instanceof ParameterizedType) {
-            ParameterizedType pt = (ParameterizedType) p.getAnnotatedReturnType();
-            int i = 0;
+        else if (t instanceof ParameterizedType) {
+            ParameterizedType pt = (ParameterizedType) t;
+            int i=0;
             for (Type t : pt.getActualTypeArguments()) {
-                if (i++ == pt.getActualTypeArguments().length - 1) {
+                if(i++==pt.getActualTypeArguments().length-1){
 
-                    type += ((Class) t).getSimpleName() + "[*]";
+                    type+=((Class)t).getSimpleName()+"[*]";
 
                 }
             }
@@ -108,7 +108,7 @@ TypeUML {
             {
                 type+=" {isOrdered}";
             }
-            else if(pt.getTypeName().contains("Set"))
+            else if(pt.getTypeName().contains("List"))
             {
                 type+=" {isUnique}";
             }
@@ -120,7 +120,7 @@ TypeUML {
         else if (e.getReturnType().getSimpleName().contains("boolean")){
             type=" : Boolean";
         }
-        else{type=e.getReturnType().getSimpleName();}
+        else{type=" : "+e.getReturnType().getSimpleName();}
         return type;
     }
 }

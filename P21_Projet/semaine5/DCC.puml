@@ -1,0 +1,98 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Classes as "ClassUML" {
+    - c : Class
+    - code : String
+    - constructor Constructor[*]
+    - methods : Method[*]
+    - fields : Field[*]
+    - modif : ModifierUML
+    + <<Create>> ClasseUML(name : String)
+    - toStringClasifiers(c : Class)
+    - ecriture()
+    - finClass()
+    + getName() : String
+    + getPackage() : String
+    + toString() : String
+}
+class Constructors as "ConstructorUML" {
+    - param : ParameterUML
+    - modif : ModifierUML
+    - t : TypeUML
+    - exec : Constructor
+    + <<Create>> ConstructorUML(constructor : Constructor)
+}
+class Executables as "ExecutableUML" {
+    - exec : Executable
+    - param : ParameterUML
+    - modif : ModifierUML
+    - t : TypeUML
+    + <<Create>> ExecutableUML(exec : Executable)
+    + toString() : String
+}
+class Fields as "FieldUML" {
+    - f : Field
+    - modif : ModifierUML
+    - type : TypeUML
+    + <<Create>> FieldUML(field Fields)
+    + toString() : String
+}
+class Java2Puml {
+    - diagram : File
+    - writer : FileWriter
+    - cs : Classes
+    + <<Create>> Java2Puml(cs : Classes)
+    - initialisation()
+    + ecriturePackage()
+}
+class Main {
+
+}
+class Methods as "MethodUML" {
+    - m : Methods
+    <<Create>> Methods(method : Method)
+}
+class Modifiers as "ModifierUML" {
+    - mo : Modifier
+    + <<Create>> ModifierUML()
+    + toStringExec(methods : Executable) : String
+    + toStringField(fields : Field) : String
+    + toStrigClass(c : Class)
+}
+class Parameters as "ParameterUML" {
+    - p : Parameter
+    - t : TypeUML
+    + <<Create>> ParameterUML()
+    + getParams(e : Executable) : Parameter[*]
+    + toString(method : Executable) : String
+}
+class Types as "TypeUML" {
+    - t : Type
+    + <<Create>> TypeUML()
+    + toStringParam(p : Parameter)
+    + toStringField(f Fields)
+    + toStringReturn(e Executable)
+}
+
+Main --> Java2Puml
+Main --> Classes
+
+Java2Puml -> Classes
+
+Classes --> Executables
+Classes -> Fields
+Classes --> Modifiers
+
+Executables <|-- Methods
+Executables <|-- Constructors
+Executables --> Parameters
+Executables -> Modifiers
+Executables -> Types
+
+Parameters --> Types
+
+Fields --> Modifiers
+Fields --> Types
+
+@enduml

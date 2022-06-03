@@ -1,0 +1,64 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Classes {
+    - c : Class
+    - code : String
+    - ArrayList<Constructor> constructors
+    - methods : Method[*]
+    - fields : Field[*]
+    + <<Create>> Classes(name : String)
+    - ajoutFields()
+    - ajoutMethods()
+    - ajoutConstructors()
+    - ecritureFields()
+    - ecritureMethods()
+    - ecritureConstructos()
+    - finClass()
+    + getName() : String
+    + getPackage() : String
+    + toString() : String
+}
+class Constructors {
+    - f : Constructor
+    + <<Create>> Constructors(constructor : Constructor)
+}
+class Executables {
+    - exec : Executables
+    + <<Create>> Executables(exec : Executable)
+    + toString() : String
+}
+class Fields {
+    - f : Field
+    + <<Create>> Fields(field Fields)
+    + <<Create>> Fields(modifiers Modifiers)
+    + toString() : String
+}
+class Java2Puml {
+    - diagram : File
+    - writer : FileWriter
+    - cs : Classes
+    + <<Create>> Java2Puml(cs : Classes)
+    - initialisation()
+    + ecriturePackage()
+}
+class Main {
+
+}
+class Methods {
+    - m : Methods
+    <<Create>> Methods(method : Method)
+}
+
+Main --> Java2Puml
+Main --> Classes
+
+Java2Puml -> Classes
+
+Classes --> Executables
+Classes --> Fields
+
+Executables <|-- Methods
+Executables <|-- Constructors
+
+@enduml

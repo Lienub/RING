@@ -42,26 +42,6 @@ public class ClasseUML {
         return classif;
     }
 
-    private void ajoutFields(){
-        for (Field f:
-                c.getDeclaredFields()) {
-            fields.add(f);
-        }
-    }
-
-    private void ajoutMethods(){
-        for (Method m: c.getDeclaredMethods()) {
-            methods.add(m);
-        }
-    }
-
-    private void ajoutConstructors(){
-        for (Constructor cons:
-                c.getDeclaredConstructors()) {
-            constructors.add(cons);
-        }
-    }
-
     private void ecriture(){
         for (Field f: fields) {
             code +=new FieldUML(f).toString();

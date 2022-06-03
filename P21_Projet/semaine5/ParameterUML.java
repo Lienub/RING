@@ -20,7 +20,7 @@ public class ParameterUML {
         return parameters;
     }
     public String toString(Executable method, Parameter parameter) {
-        String parameterName = parameter.getName()+" : "+t.toStringParam(parameter);
+        String parameterName = parameter.getName()+" "+t.toStringParam(parameter);
 
         return parameterName;
     }

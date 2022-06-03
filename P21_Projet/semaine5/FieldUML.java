@@ -18,7 +18,7 @@ public class FieldUML {
         String res="";
         txt=modif.toStringField(f);
         res+=txt[0];
-        res+= "\t "+f.getName()+" : "+type.toStringField(f);
+        res+= "\t "+f.getName()+" "+type.toStringField(f);
         res+=txt[1]+"\n";
 
         return res;

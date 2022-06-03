@@ -1,0 +1,93 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Classes {
+    - c : Class
+    - code : String
+    - ArrayList<Constructor> constructors
+    - methods : Method[*]
+    - fields : Field[*]
+    + <<Create>> Classes(name : String)
+    - ajoutFields()
+    - ajoutMethods()
+    - ajoutConstructors()
+    - ecriture()
+    - finClass()
+    + getName() : String
+    + getPackage() : String
+    + toString() : String
+}
+class Constructors {
+    - f : Constructor
+    + <<Create>> Constructors(constructor : Constructor)
+}
+class Executables {
+    - exec : Executables
+    - param : Parameters
+    - modif : Modifiers
+    - t : Types
+    + <<Create>> Executables(exec : Executable)
+    + toString() : String
+}
+class Fields {
+    - f : Field
+    - modif : Modiiers
+    - type : Types
+    + <<Create>> Fields(field Fields)
+    + toString() : String
+}
+class Java2Puml {
+    - diagram : File
+    - writer : FileWriter
+    - cs : Classes
+    + <<Create>> Java2Puml(cs : Classes)
+    - initialisation()
+    + ecriturePackage()
+}
+class Main {
+
+}
+class Methods {
+    - m : Methods
+    <<Create>> Methods(method : Method)
+}
+class Modifiers {
+    - mo : Modifier
+    + <<Create>> Modifiers()
+    + toStringExec(methods : Executable) : String
+    + toStringField(fields : Field) : String
+}
+class Parameters {
+    - p : Parameter
+    - t : Types
+    + <<Create>> Parameters()
+    + toString(method : Executable) : List<String>
+}
+class Types {
+    - t : Type
+    + <<Create>> Types()
+    + toStringParam(p : Parameter)
+    + toStringField(f Fields)
+    + toStringReturn(e Executable)
+}
+
+Main --> Java2Puml
+Main --> Classes
+
+Java2Puml -> Classes
+
+Classes --> Executables
+Classes -> Fields
+
+Executables <|-- Methods
+Executables <|-- Constructors
+Executables --> Parameters
+Executables -> Modifiers
+Executables -> Types
+
+Parameters --> Types
+
+Fields --> Modifiers
+Fields --> Types
+
+@enduml
