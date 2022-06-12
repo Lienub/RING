@@ -1,4 +1,4 @@
-package P21_Projet.semaine5;
+package P21_Projet.semaine6;
 
 import java.lang.reflect.Field;
 
@@ -22,5 +22,9 @@ public class FieldUML {
         res+=txt[1]+"\n";
 
         return res;
+    }
+
+    public String getOthers(){
+        return type.getAutres(f);
     }
 }

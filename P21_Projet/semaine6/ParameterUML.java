@@ -1,10 +1,7 @@
-package P21_Projet.semaine5;
-
-import P21_Projet.semaine3.uml.Parameters;
+package P21_Projet.semaine6;
 
 import java.lang.reflect.Executable;
 import java.lang.reflect.Parameter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

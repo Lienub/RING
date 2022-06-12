@@ -1,11 +1,11 @@
-package P21_Projet.semaine2.uml;
+package P21_Projet.semaine6;
 
 import java.lang.reflect.Method;
 
-public class Methods extends Executables {
+public class MethodUML extends ExecutableUML {
     private Method m;
 
-    public Methods(Method method){
+    public MethodUML(Method method){
         super (method);
         this.m = method;
     }

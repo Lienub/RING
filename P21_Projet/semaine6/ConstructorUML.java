@@ -1,4 +1,4 @@
-package P21_Projet.semaine5;
+package P21_Projet.semaine6;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;

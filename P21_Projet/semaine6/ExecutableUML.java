@@ -1,30 +1,29 @@
-package P21_Projet.semaine5;
+package P21_Projet.semaine6;
 
-import java.lang.reflect.Constructor;
+import java.lang.reflect.Executable;
 import java.lang.reflect.Parameter;
 
-public class ConstructorUML extends ExecutableUML {
+public class ExecutableUML {
 
+    private Executable exec;
     private ParameterUML param = new ParameterUML();
     private ModifierUML modif = new ModifierUML();
     private TypeUML t = new TypeUML();
-    private Constructor exec;
+    public ExecutableUML(Executable exec) { this.exec = exec; }
 
-    public ConstructorUML(Constructor constructor){
-        super(constructor);
-        this.exec = constructor;
-    }
-
-    public String toString(){
+    @Override
+    public String toString() {
         String txt = "";
         txt+=modif.toStringExec(exec);
-        txt+= "\t " +"<<Create>> "+ exec.getDeclaringClass().getSimpleName() + "(";
+        txt+= "\t " + exec.getName() + "(";
         int i = 0;
         for (Parameter parameter : param.getParams(exec)) {
             txt+=param.toString(exec,parameter);
             if(i++ != param.getParams(exec).size() - 1) {txt+=", ";}
         }
-        txt+=")\n";
+        txt+=")";
+        txt+=t.toStringReturn(exec)+"\n";
         return txt;
     }
+
 }

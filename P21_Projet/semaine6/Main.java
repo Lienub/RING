@@ -1,10 +1,10 @@
-package P21_Projet.semaine2.uml;
+package P21_Projet.semaine6;
 
 public class Main {
     public static void main(String[] args) {
 
         try{
-            Classes cs = new Classes(args[0]);
+            ClasseUML cs = new ClasseUML(args[0]);
             Java2Puml file = new Java2Puml(cs);
             file.ecriturePackage();
         }
