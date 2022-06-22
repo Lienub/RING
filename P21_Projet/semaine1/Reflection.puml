@@ -1,0 +1,73 @@
+@startuml
+'https://plantuml.com/class-diagram
+!theme vibrant
+skinparam classBorderColor #4F4F4F
+skinparam classBackgroundColor #FFFFFD
+package java.lang.Object #C283C5-4B4A6D{
+    class Class{
+        +getName() : String
+        +getMethods() : Method[]
+        +getDeclaredMethods() : Method[]
+        +getConstructors() : Constructor[]
+        +getFields() : Field[]
+        +getDeclaredFields() : Field[]
+    }
+    package java.lang.reflect    #E3D3E3-606070{
+        class Constructor{
+            +getName() : String
+        }
+
+        class Field{
+            +getName() : String
+        }
+
+        class Modifier{
+            +isAbstract(Integer) : Boolean
+            +isFinal(Integer) : Boolean
+            +isInterface(Integer) : Boolean
+            +isPrivate(Integer) : Boolean
+            +isPublic(Integer) : Boolean
+            +isProtected(Integer) : Boolean
+            +isStatic(Integer) : Boolean
+
+        }
+
+        class Parameter{
+            +getModifiers() : Integer
+            +getName() : String
+            +getParameterizedType() : Type
+        }
+
+        class Method{
+            +getName() : String
+        }
+
+        class Executable{
+            +getName() : String
+            +getParameterCount() : Integer
+            +getDeclaringClass() : String
+        }
+
+
+        interface Member{}
+        interface Type{}
+
+
+
+
+        Executable <|. Member
+        Field <|.. Member
+        Constructor --|> Executable
+        Method --|> Executable
+
+    }
+    Parameter <|.. Type
+    Class *-- Field
+    Field <|-- Modifier
+    Class *-- Constructor
+    Class *-- Method
+    Field <|-- Parameter
+}
+
+
+@enduml

@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Classes {
+}
+class Constructors {
+}
+class Executables {
+}
+class Fields {
+}
+class Java2Puml {
+}
+class Main {
+}
+class Methods {
+}
+class Modifiers {
+}
+class Parameters {
+}
+class Types {
+}
+
+Main --> Java2Puml
+Main --> Classes
+
+Java2Puml -> Classes
+
+Classes --> Executables
+Classes -> Fields
+Classes --> Modifiers
+
+Executables <|-- Methods
+Executables <|-- Constructors
+Executables --> Parameters
+Executables -> Modifiers
+Executables -> Types
+
+Parameters --> Types
+
+Fields --> Modifiers
+Fields --> Types
+@enduml

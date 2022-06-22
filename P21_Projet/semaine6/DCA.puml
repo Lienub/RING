@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Classes as "ClassUML" {
+}
+class Constructors as "ConstructorUML" {
+}
+class Executables as "ExecutableUML" {
+}
+class Fields as "FieldUML" {
+}
+class Java2Puml {
+}
+class Main {
+}
+class Methods as "MethodUML" {
+}
+class Modifiers as "ModifierUML" {
+}
+class Parameters as "ParameterUML" {
+}
+class Types as "TypeUML" {
+}
+
+Main --> Java2Puml
+Main --> Classes
+
+Java2Puml o-> "1..*" Classes
+
+Classes ..> "<<uses>>" Executables
+Classes .> "<<use>>" Fields
+Classes o-> "1..*" Modifiers
+
+Executables <|-- Methods
+Executables <|-- Constructors
+Executables o--> "1..*" Parameters
+Executables o-> "1..*" Modifiers
+Executables o-> "1..*" Types
+
+Parameters o--> "1..*" Types
+
+Fields o--> "1..*" Modifiers
+Fields o--> "1..*" Types
+@enduml

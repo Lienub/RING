@@ -1,0 +1,103 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Classes as "ClassUML" {
+    - tab_c : Class[*]
+    - c : Class
+    - code : String
+    - constructor : Constructor[*]
+    - methods : Method[*]
+    - fields : Field[*]
+    - modif : ModifierUML
+    - autres : String[*]
+    + <<Create>> ClasseUML(name : String)
+    - toStringClasifiers(c : Class)
+    - ecriture()
+    + getName() : String
+    + getPackage() : String
+    + toString() : String
+}
+class Constructors as "ConstructorUML" {
+    - param : ParameterUML
+    - modif : ModifierUML
+    - t : TypeUML
+    - exec : Constructor
+    + <<Create>> ConstructorUML(constructor : Constructor)
+    + toString() : String
+}
+class Executables as "ExecutableUML" {
+    - exec : Executable
+    - modif : ModifierUML
+    - param : ParameterUML
+    - t : TypeUML
+    + <<Create>> ExecutableUML(exec : Executable)
+    + toString() : String
+}
+class Fields as "FieldUML" {
+    - f : Field
+    - modif : ModifierUML
+    - type : TypeUML
+    + <<Create>> FieldUML(field Fields)
+    + toString() : String
+    + getOthers() : String
+}
+class Java2Puml {
+    - tab_c : Class[*]
+    - diagram : File
+    - writer : FileWriter
+    - cs : ClassUML
+    + <<Create>> Java2Puml(cs : Classes)
+    - initialisation()
+    + ecriturePackage()
+}
+class Main {
+
+}
+class Methods as "MethodUML" {
+    - m : Methods
+    <<Create>> Methods(method : Method)
+}
+class Modifiers as "ModifierUML" {
+    - mo : Modifier
+    + <<Create>> ModifierUML()
+    + toStringExec(methods : Executable) : String
+    + toStringField(fields : Field) : String
+    + toStrigClass(c : Class)
+}
+class Parameters as "ParameterUML" {
+    - p : Parameter
+    - t : TypeUML
+    + <<Create>> ParameterUML()
+    + getParams(e : Executable) : Parameter[*]
+    + toString(method : Executable) : String
+}
+class Types as "TypeUML" {
+    - t : Type
+    - autre : String
+    + <<Create>> TypeUML()
+    + toStringParam(p : Parameter)
+    + toStringField(f : Fields)
+    + toStringReturn(p : Executable)
+}
+
+Main --> Java2Puml
+Main --> Classes
+
+Java2Puml o-> "1..*" Classes
+
+Classes ..> "<<uses>>" Executables
+Classes ..> "<<use>>" Fields
+Classes o-> "1..*" Modifiers
+
+Executables <|-- Methods
+Executables <|-- Constructors
+Executables o--> "1..*" Parameters
+Executables o-> "1..*" Modifiers
+Executables o-> "1..*" Types
+
+Parameters o--> "1..*" Types
+
+Fields o--> "1..*" Modifiers
+Fields o--> "1..*" Types
+
+@enduml

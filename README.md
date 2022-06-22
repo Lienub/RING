@@ -30,7 +30,7 @@ A ce stade, le diagramme PlantUML généré ne fait apparaître que les noms des
 Pour une classe Java dont le nom est passé en argument de la ligne de commande,
 faire la génération du source PlantUML dans un fichier de même nom que la classe.
 
-![DC de la classe Year en semaine 2](semaine2/uml/p21.td1.Year.svg)
+![DC de la classe Year en semaine 2](P21_Projet/semaine2/uml/p21.td1.Year.svg)
 
 Sur le modèle de l'API Reflection, construire une hiérarchie de classes
 qui modélise les concepts UML-PlantUML nécessaires. Élaborer les DCA et DCC correspondants.  
@@ -42,7 +42,7 @@ ainsi que les types des membres et des paramètres avec prise en compte des type
 Voir [Obtaining Names of Method Parameters](https://docs.oracle.com/javase/tutorial/reflect/member/methodparameterreflection.html)
 en particulier [MethodParameterSpy.java](https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/reflect/member/example/MethodParameterSpy.java)
 
-![DC de la classe Year en semaine 3](semaine3/uml/p21.td1.Year.svg)
+![DC de la classe Year en semaine 3](P21_Projet/semaine3/uml/p21.td1.Year.svg)
 
 
 **S4: Autres classificateurs**  
@@ -50,11 +50,11 @@ Rajouter le traitement des interfaces, des énumérations et des classes abstrai
 En UML ces types sont des classificateurs (classifiers).
 Traiter aussi les modificateurs (`abstract`, `static`, `final`) pour les membres de ces types.  
 
-![DC de la classe Year en semaine 4](semaine4/uml/p21.td1.Year.svg)
+![DC de la classe Year en semaine 4](P21_Projet/semaine4/uml/p21.td1.Year.svg)
 
-![DC de l'interface IBar en semaine 4](semaine4/uml/p21.td6.ex3.IBar.svg)
-![DC de l'énumération TypeChope en semaine 4](semaine4/uml/p21.td6.ex3.TypeChope.svg)
-![DC de la classe abstraite Recipient en semaine 4](semaine4/uml/p21.td6.ex3.Recipient.svg)
+![DC de l'interface IBar en semaine 4](P21_Projet/semaine4/uml/p21.td6.ex3.IBar.svg)
+![DC de l'énumération TypeChope en semaine 4](P21_Projet/semaine4/uml/p21.td6.ex3.TypeChope.svg)
+![DC de la classe abstraite Recipient en semaine 4](P21_Projet/semaine4/uml/p21.td6.ex3.Recipient.svg)
 
 **S5: Types composites, multiplicités**  
 Remplacer les types composites (tableaux, collections) par des indications de multiplicités 
